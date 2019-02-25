@@ -32,4 +32,22 @@ export class MajorService {
   public add(data: Major): Observable<MajorRespone> {
     return this.http.post<MajorRespone>(this.api.apiUrl.major, data);
   }
+
+  public get(id):Observable<MajorRespone>
+  {
+    return this.http.get<MajorRespone>(this.api.apiUrl.majors + '?id=' + id);
+  }
+  
+  public update(data:Major):Observable<MajorRespone>
+  {
+    
+    return this.http.put<MajorRespone>(this.api.apiUrl.major + '?id=' + data.id, data);
+  }
+
+  public delete(id):Observable<MajorRespone>
+  {
+    return this.http.delete<MajorRespone>(this.api.apiUrl.major + '?id=' + id);
+  }
 }
+
+// trả về mọt đối tượng mới tạo
